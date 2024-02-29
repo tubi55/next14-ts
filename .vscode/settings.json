@@ -45,6 +45,9 @@
     "content",
     "all"
   ],
+  "tailwindcss-highlight.customVariantsConfig": {
+    "#a629ff": ["sm", "md", "lg", "xl", "2xl"]
+  },
 
   "tailwindcss-highlight.customUtilitiesConfig": {
     "all": {
@@ -70,8 +73,17 @@
       "style": {
         "borderWidth": "0 0 3px 0",
         "borderStyle": "solid",
-        "borderColor": "rgba(163, 48, 245,1)",
-        "color": "rgba(163, 48, 245,1)"
+        "borderColor": "rgba(231, 195, 255,1)",
+        "color": "rgba(231, 195, 255,1)"
+      }
+    },
+    "rounded": {
+      "regex": "(?<=[:`@'!\"\\s])rounded(|-)[^`';\"\\s]*",
+      "style": {
+        "borderWidth": "0 0 3px 0",
+        "borderStyle": "solid",
+        "borderColor": "rgba(231, 195, 255,1)",
+        "color": "rgba(231, 195, 255,1)"
       }
     },
     "padding": {
@@ -108,15 +120,6 @@
         "borderStyle": "solid",
         "borderColor": "rgba(222, 195, 138, 1)",
         "color": "rgba(222, 195, 138, 1)"
-      }
-    },
-    "rounded": {
-      "regex": "(?<=[:`@'!\"\\s])rounded(|-)[^`';\"\\s]*",
-      "style": {
-        "borderWidth": "0 0 3px 0",
-        "borderStyle": "solid",
-        "borderColor": "rgba(163, 48, 245,1)",
-        "color": "rgba(163, 48, 245,1)"
       }
     },
     "content": {
@@ -164,7 +167,6 @@
         "color": "rgba(255, 105, 180,1)"
       }
     },
-
     "gap": {
       "regex": "(?<=[:`@'!\"\\s])gap-[^`';\"\\s]+",
       "style": {
