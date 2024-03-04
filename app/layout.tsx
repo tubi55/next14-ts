@@ -22,7 +22,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<ClerkProvider>
+		// clerk login 페이지의 포인트 색상 변경가능
+		//clerk web page > customization > branding에서 로고이미지 등록 및 기타 수정사항 적용가능
+		<ClerkProvider appearance={{ variables: { colorPrimary: '#624cf5' } }}>
 			<html lang='en'>
 				<body className={cn('font-IBMPlex antialiased', IBMPlex.variable)}>{children}</body>
 			</html>
