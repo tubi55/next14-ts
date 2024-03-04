@@ -19,7 +19,7 @@ const Sidebar = () => {
 				<nav className='sidebar-nav'>
 					<SignedIn>
 						<ul className='sidebar-nav_elements'>
-							{navLinks.map(link => {
+							{navLinks.slice(0, 6).map(link => {
 								const isActive = link.route === pathname;
 								return (
 									<li
@@ -38,15 +38,34 @@ const Sidebar = () => {
 									</li>
 								);
 							})}
+						</ul>
 
+						<ul className='sidebar-nav_elements'>
+							{navLinks.slice(6).map(link => {
+								const isActive = link.route === pathname;
+								return (
+									<li
+										key={link.route}
+										className={`sidebar-nav_element group ${isActive ? 'bg-purple-gradient text-white' : 'text-gray-700'}`}>
+										<Link className='sidebar-link' href={link.route}>
+											<Image
+												src={link.icon}
+												alt='logo'
+												width={24}
+												height={24}
+												className={`${isActive && 'brightness-200'}`}
+											/>
+											{link.label}
+										</Link>
+									</li>
+								);
+							})}
 							<li className='flex-center cursor-pointer gap-2 p-4'>
 								<UserButton afterSignOutUrl='/' showName />
 							</li>
 						</ul>
 					</SignedIn>
 
-					{/* npx shadcn-ui@latest add button */}
-					{/* 위의 명령어로 설치하면 components폴더 안쪽에 ui>button.tsx 컴포넌트가 자동으로 생성됨 */}
 					<SignedOut>
 						{/* asChild : 해당 버튼컴포넌트를 자식요소의 Link로 렌더링처리 */}
 						<Button asChild className='button bg-purple-gradient bg-cover'>
