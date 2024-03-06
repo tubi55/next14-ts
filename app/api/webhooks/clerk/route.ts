@@ -58,7 +58,8 @@ export async function POST(req: Request) {
 	// CREATE
 	if (eventType === "user.created") {
 		const { id, email_addresses, image_url, first_name, last_name, username } = evt.data;
-
+		//만약 clerk에서 새로운 유저정보가 등록되면 자동으로 이벤트가 발생하며 유저정보를 비구조화할당으로 풀어서
+		//클럭 전용 id를 추가해 새로운 유저정보 객체를 생성
 		const user = {
 			clerkId: id,
 			email: email_addresses[0].email_address,
