@@ -1,4 +1,4 @@
-import mongoose, { Mongoose } from 'mongoose';
+import mongoose, { Mongoose } from "mongoose";
 
 const MONGODB_URL = process.env.MONGODB_URL;
 
@@ -22,11 +22,11 @@ if (!cached) {
 
 export const connectToDatabase = async () => {
 	if (cached.conn) return cached.conn;
-	if (!MONGODB_URL) throw new Error('Missing MONGODB_URL');
+	if (!MONGODB_URL) throw new Error("Missing MONGODB_URL");
 
 	//bufferCommands:false (mongoose는 DB연결을 기다리지 않고 이전 모델객체의 정보를 참조해 즉각 사용할 수 있도록 buffering 기능이 기본설정되어 있음 )
 	//그렇다보니 만약 DB접속전 Model에 문제가 발생시 해당 에러를 내보내지 않는 문제점이 있기 때문에 buffering기능을 비활성화
-	cached.promise = cached.promise || mongoose.connect(MONGODB_URL, { dbName: 'imaginify', bufferCommands: false });
+	cached.promise = cached.promise || mongoose.connect(MONGODB_URL, { dbName: "imaginify", bufferCommands: false });
 	cached.conn = await cached.promise;
 
 	return cached.conn;
