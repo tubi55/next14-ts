@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const AddTransformationTypePage = () => {
 	return <div>AddTransformationTypePage</div>;
