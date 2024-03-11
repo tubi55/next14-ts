@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
+import clsx from "clsx";
 
 const MobileNav = () => {
 	//npx shadcn-ui@latest add sheet
@@ -27,17 +28,19 @@ const MobileNav = () => {
 							<Image src="/assets/icons/menu.svg" alt="menu" width={32} height={32} className="cursor-pointer" />
 						</SheetTrigger>
 
-						<SheetContent className="sheet-content sm:w-64">
+						<SheetContent className="sheet-content p-6 sm:w-64">
 							<>
 								<Image src="/assets/images/logo-text.svg" alt="logo" width={152} height={23} />
 
 								<ul className="header-nav_elements">
 									{navLinks.map(link => {
 										const isActive = link.route === pathname;
+										const className = "flex whitespace-nowrap text-dark-700";
 										return (
 											<li
 												key={link.route}
-												className={` ${isActive && "gradient-text"} p-18 flex whitespace-nowrap text-dark-700`}>
+												//className={`${isActive && "gradient-text"} flex whitespace-nowrap p-16 text-dark-700`}
+												className={clsx(isActive && "gradient-text", className)}>
 												<Link className="sidebar-link cursor-pointer" href={link.route}>
 													<Image src={link.icon} alt="logo" width={24} height={24} />
 													{link.label}
